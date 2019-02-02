@@ -41,14 +41,12 @@ const siteContent = {
 // TASK 2 & 3:
 //Standard function to create elements
 
-// 
+// Some modfication was done to HTML (NAV and CTA only) to work with JS and refactor into a single set of code, remaining was left as is
 function createIndexElement(elementProp) {
   
   for (let i=0; i < elementProp.length; i++){
-    // console.log(elementProp[i].type);
     let newElement = document.createElement(elementProp[i].type);
     if (elementProp[i].attrib !== ""){
-      // console.log("Not done")
       newElement.setAttribute(elementProp[i].attrib, elementProp[i].attribInfo);
     }
     if (elementProp[i].className != ""){
@@ -56,12 +54,6 @@ function createIndexElement(elementProp) {
     }
     newElement.textContent = elementProp[i].textContent;
     const newPlacement = document.querySelector(elementProp[i].parent);
-    // console.log(newElement);
-    // const newPlacement = document.querySelectorAll(elementProp[i].parent);
-    // if (newPlacement.length > 1) {
-      // newPlacement.forEach(item => item.appendChild(newElement));
-    // }
-    // else {
 
     // TASK 4: Define whether it is an append or a prepend - reference used in the elements definition
     if (elementProp[i].method == "append" || elementProp[i].method == "") {
@@ -70,12 +62,7 @@ function createIndexElement(elementProp) {
     else {
       newPlacement.prepend(newElement);
     }
-      
-    // }
-    
     console.log(newPlacement);
-    // newPlacement.appendChild(newElement); 
-    // console.log(newElement);
   }
 }
 
@@ -131,7 +118,6 @@ let addressP = Object.values(siteContent.contact);
 console.log(addressP)
 let count = addressP.length;
 contactP.forEach((item) => item.innerHTML = addressP[--count]);
-// console.log(addressP.map((item, index, array) => item))
 
 //Footer
 document.querySelector("footer p").innerHTML = siteContent.footer.copyright;
