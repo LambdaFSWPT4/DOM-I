@@ -89,16 +89,9 @@ let elements = [
   {"type": "a", "attrib": "href", "attribInfo": "#", "textContent": "NAV6", "parent": "nav", "method": "append"},
   {"type": "a", "attrib": "href", "attribInfo": "#", "textContent": "NAV5", "parent": "nav", "method": "prepend"},
   {"type": "h1", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["h1"], "parent": ".cta-text", "method": "append"},
-  {"type": "button", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["button"], "parent": ".cta-text", "method": "append"}
+  {"type": "button", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["button"], "parent": ".cta-text", "method": "append"},
   // {"type": "div", "attrib": "", "attribInfo": "", "textContent": siteContent["main-content"]["features-h4"], "parent": "top-content", "className": "text-content"},
   // {"type": "h4", "attrib": "", "attribInfo": "", "textContent": siteContent["main-content"]["features-h4"], "parent": ".top-content"},
-  // {"type": "p", "attrib": "", "attribInfo": "", "textContent": siteContent["main-content"]["features-content"], "parent": "#features"},
-  // {"type": "h4", "attrib": "", "attribInfo": "", "textContent": siteContent["main-content"]["about-h4"], "parent": "#about"},
-  // {"type": "p", "attrib": "", "attribInfo": "", "textContent": siteContent["main-content"]["about-content"], "parent": "#about"},
-  // {"type": "h1", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["h1"], "parent": ".cta-text"},
-  // {"type": "h1", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["h1"], "parent": ".cta-text"},
-  // {"type": "h1", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["h1"], "parent": ".cta-text"},
-  // {"type": "h1", "attrib": "", "attribInfo": "", "textContent": siteContent["cta"]["h1"], "parent": ".cta-text"},
 ];
 
 createIndexElement(elements);
@@ -132,4 +125,13 @@ textConPara[2].innerHTML = siteContent["main-content"]["services-content"];
 textConPara[3].innerHTML = siteContent["main-content"]["product-content"];
 textConPara[4].innerHTML = siteContent["main-content"]["vision-content"];
 
+//FOOTER
+let contactP = Array.from(document.querySelectorAll(".contact")[0].children).reverse();
+let addressP = Object.values(siteContent.contact);
+console.log(addressP)
+let count = addressP.length;
+contactP.forEach((item) => item.innerHTML = addressP[--count]);
+// console.log(addressP.map((item, index, array) => item))
 
+//Footer
+document.querySelector("footer p").innerHTML = siteContent.footer.copyright;
